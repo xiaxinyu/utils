@@ -1,6 +1,6 @@
 package com.xiaxinyu.aop;
 
-import com.xiaxinyu.exception.AppException;
+import com.xiaxinyu.exception.ApplicationException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -37,7 +37,7 @@ public class MonitorAop {
             long cost = System.currentTimeMillis() - begin;
             log.info("Finish invoking：{}, Cost：{} ms", methodFullName, cost);
         } catch (Exception e) {
-            throw new AppException(e.getMessage());
+            throw new ApplicationException(e);
         }
         return result;
     }
